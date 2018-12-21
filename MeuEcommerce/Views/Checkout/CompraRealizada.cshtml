@@ -1,0 +1,39 @@
+﻿@model MeuEcommerce.Models.Compra
+
+@{
+    ViewBag.Title = "CompraRealizada";
+}
+
+<h2>Parabéns @Model.Usuario.UserName, sua compra foi realizada com sucesso.</h2>
+
+<br />
+O código da sua compra é: @Model.Id
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Produto</td>
+            <td>Quantidade</td>
+            <td>Preço</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Itens)
+        {
+            <tr>
+                <td>
+                    @item.Produto.Nome
+                </td>
+                <td>
+                    @item.Quantidade
+                </td>
+                <td>
+                    @item.PrecoTotal
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+Valor total: @Model.PrecoTotal
+    Status: @Model.Status.ToString()
